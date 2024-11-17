@@ -31,17 +31,40 @@
 
 
 
-Запуск
+Запуск через docker-compose
 
     Build: ./run.sh -c
     Start: ./run.sh -r
     Stop: ./run.sh -d
 
+Запуск через виртуальные окружения
 
+    Установка компонентов
 
+        sudo apt update
+        sudo apt install -y python3 python3-venv python3-pip git
+        sudo apt install redis-server
+        sudo systemctl start redis-server
+        python3 -m venv venv
+        source venv/bin/activate
+        cd netbox
+        pip install -r requirements.txt
+        cp netbox/netbox/configuration_example.py netbox/netbox/configuration.py
 
+        python netbox/generate_secret_key.py
+            Добавить ключ в SECRET_KEY в файле netbox/netbox/configuration.py
 
+        sudo -u postgres psql
+        CREATE DATABASE netbox;
+        CREATE USER netbox_user WITH PASSWORD '12345678';
+        GRANT ALL PRIVILEGES ON DATABASE netbox TO netbox_user;
+        \q
 
+        python3 netbox/manage.py createsuperuser
+        python3 netbox/manage.py migrate
+    Запуск
+
+        python3 netbox/manage.py runserver
 
 
 

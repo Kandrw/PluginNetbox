@@ -325,6 +325,7 @@ urlpatterns = [
     path('cables/', views.CableListView.as_view(), name='cable_list'),
     path('cables/add/', views.CableEditView.as_view(), name='cable_add'),
     path('cables/import/', views.CableBulkImportView.as_view(), name='cable_import'),
+    
     path('cables/edit/', views.CableBulkEditView.as_view(), name='cable_bulk_edit'),
     path('cables/delete/', views.CableBulkDeleteView.as_view(), name='cable_bulk_delete'),
     path('cables/<int:pk>/', include(get_model_urls('dcim', 'cable'))),
@@ -334,10 +335,10 @@ urlpatterns = [
     path('optic-cable-test/', views.ConsolePortListView.as_view(), name='opticcable_t_list'),
     
     path('optic-cable-test/', views.OpticCableTest.as_view(), name='optic_cable'),
-    path('optic-cable-test/add/', views.CableEditView.as_view(), name='opticcable_t_add'),
+    path('optic-cable-test/add/', views.OpticCableAdd.as_view(), name='opticcable_t_add'),
     path('optic-cable-test/import/', views.CableBulkImportView.as_view(), name='opticcable_t_import'),
 
-    path('optic-cable-test/add/', views.CableEditView.as_view(), name='optic_cable_add'),
+    path('optic-cable-test/add/', views.OpticCableAdd.as_view(), name='optic_cable_add'),
     path('optic-cable-test/import/', views.CableBulkImportView.as_view(), name='optic_cable_import'),
     
     path('inventory-item-roles/<int:pk>/', include(get_model_urls('dcim', 'opticcable_t'))),

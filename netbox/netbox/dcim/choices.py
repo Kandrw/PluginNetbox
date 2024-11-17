@@ -1466,6 +1466,7 @@ class CableTypeChoices(ChoiceSet):
     TYPE_CAT7 = 'cat7'
     TYPE_CAT7A = 'cat7a'
     TYPE_CAT8 = 'cat8'
+    TYPE_OPTIC_CABLE = 'optic-cable'
     TYPE_DAC_ACTIVE = 'dac-active'
     TYPE_DAC_PASSIVE = 'dac-passive'
     TYPE_MRJ21_TRUNK = 'mrj21-trunk'
@@ -1493,6 +1494,7 @@ class CableTypeChoices(ChoiceSet):
                 (TYPE_CAT6A, 'CAT6a'),
                 (TYPE_CAT7, 'CAT7'),
                 (TYPE_CAT7A, 'CAT7a'),
+                (TYPE_OPTIC_CABLE, 'optic-cable'),
                 (TYPE_CAT8, 'CAT8'),
                 (TYPE_DAC_ACTIVE, 'Direct Attach Copper (Active)'),
                 (TYPE_DAC_PASSIVE, 'Direct Attach Copper (Passive)'),

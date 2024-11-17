@@ -151,13 +151,12 @@ CONNECTIONS_MENU = Menu(
 
 
 TEST_CONNECTIONS_MENU = Menu(
-    label=_('HACATON Connections test'),
+    label=_('Optical track'),
     icon_class='mdi mdi-connection',
     groups=(
         MenuGroup(
             label=_('Functional'),
             items=(
-                # get_model_item('dcim', 'cable', _('Cables')),
                 # MenuItem(
                 #     link='dcim:optic_cable',
                 #     link_text=_('My cable'),
@@ -166,16 +165,10 @@ TEST_CONNECTIONS_MENU = Menu(
                 # ),
                 MenuItem(
                     link='dcim:optic_cable',
-                    link_text=_('My cable'),
+                    link_text=_('Join optic cable'),
                     permissions=['dcim.view_opticcable'],
                     buttons=get_model_buttons('dcim', 'optic_cable', actions=('add', 'import'))
                 ),
-                # MenuItem(
-                #     link='optic_cable_v2:splice_plate_list',
-                #     link_text=_('Test 1'),
-                #     permissions=['dcim.view_opticcable'],
-                #     # buttons=get_model_buttons('dcim:optic_cable', 'cable', actions=('add', 'import'))
-                # ),
             ),
         ),
     ),

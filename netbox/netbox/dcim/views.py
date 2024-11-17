@@ -40,7 +40,7 @@ from .models import *
 
 CABLE_TERMINATION_TYPES = {
     'dcim.consoleport': ConsolePort,
-    'dcim.opticcable_t': ConsolePort,
+    'dcim.opticcable_t': OpticPort,
     'dcim.consoleserverport': ConsoleServerPort,
     'dcim.powerport': PowerPort,
     'dcim.poweroutlet': PowerOutlet,
@@ -3390,7 +3390,7 @@ class ConsoleConnectionsListView(generic.ObjectListView):
 
 
 class OpticCableTest(generic.ObjectListView):
-    queryset = PowerPort.objects.filter(_path__is_complete=True)
+    queryset = OpticPort.objects.filter(_path__is_complete=True)
     filterset = filtersets.PowerConnectionFilterSet
     filterset_form = forms.PowerConnectionFilterForm
     table = tables.PowerConnectionTable
@@ -3405,6 +3405,37 @@ class OpticCableTest(generic.ObjectListView):
             'title': 'Optic cables'
         }
 
+class OpticCableAdd(generic.ObjectListView):
+    queryset = OpticPort.objects.filter(_path__is_complete=True)
+    filterset = filtersets.PowerConnectionFilterSet
+    filterset_form = forms.PowerConnectionFilterForm
+    table = tables.PowerConnectionTable
+    print("Test OpticCableTest 2")
+    template_name = 'dcim/connections_list.html'
+    actions = {
+        'export': {'view'},
+    }
+
+    def get_extra_context(self, request):
+        return {
+            'title': 'Optic cables'
+        }
+
+class CableBulkImportView(generic.ObjectListView):
+    queryset = OpticPort.objects.filter(_path__is_complete=True)
+    filterset = filtersets.PowerConnectionFilterSet
+    filterset_form = forms.PowerConnectionFilterForm
+    table = tables.PowerConnectionTable
+    print("Test OpticCableTest 3")
+    template_name = 'dcim/connections_list.html'
+    actions = {
+        'export': {'view'},
+    }
+
+    def get_extra_context(self, request):
+        return {
+            'title': 'Optic cables'
+        }
 
 
 

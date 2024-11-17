@@ -1144,6 +1144,7 @@ class InventoryItemTemplateForm(ComponentTemplateForm):
                 FieldSet('interfacetemplate', name=_('Interface')),
                 FieldSet('consoleporttemplate', name=_('Console Port')),
                 FieldSet('consoleserverporttemplate', name=_('Console Server Port')),
+                FieldSet('opticcable_t', name=_('Optic cable')),
                 FieldSet('frontporttemplate', name=_('Front Port')),
                 FieldSet('rearporttemplate', name=_('Rear Port')),
                 FieldSet('powerporttemplate', name=_('Power Port')),

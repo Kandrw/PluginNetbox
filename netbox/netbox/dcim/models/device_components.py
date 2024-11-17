@@ -26,6 +26,7 @@ __all__ = (
     'BaseInterface',
     'CabledObjectModel',
     'ConsolePort',
+    'OpticPort',
     'ConsoleServerPort',
     'DeviceBay',
     'FrontPort',
@@ -302,6 +303,28 @@ class ConsolePort(ModularComponentModel, CabledObjectModel, PathEndpoint, Tracki
 
     def get_absolute_url(self):
         return reverse('dcim:consoleport', kwargs={'pk': self.pk})
+
+class OpticPort(ModularComponentModel, CabledObjectModel, PathEndpoint, TrackingModelMixin):
+    """
+    A optic cable.
+    """
+    type = models.CharField(
+        verbose_name=_('type'),
+        max_length=50,
+        choices=ConsolePortTypeChoices,
+        blank=True,
+        help_text=_('Physical port type')
+    )
+    clone_fields = ('device', 'module', 'type')
+
+    class Meta(ModularComponentModel.Meta):
+        verbose_name = _('optic cable port')
+        verbose_name_plural = _('optic cable ports')
+
+    def get_absolute_url(self):
+        return reverse('dcim:opticcable_t', kwargs={'pk': self.pk})
+
+
 
 
 class ConsoleServerPort(ModularComponentModel, CabledObjectModel, PathEndpoint, TrackingModelMixin):

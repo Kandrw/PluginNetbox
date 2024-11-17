@@ -1,0 +1,35 @@
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список модулей</title>
+</head>
+<body>
+    <h1>Список модулей</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Количество волокон</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for module in modules %}
+            <tr>
+                <td>{{ module.id }}</td>
+                <td>{{ module.name }}</td>
+                <td>{{ module.fiber_count }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Нет модулей.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
